@@ -1,3 +1,5 @@
+[Main Page](../README.md)
+
 # Bash
 Bash is the shell, or command language interpreter, for the Linux operating system. The name is an acronym for the Bourne-Again SHell
 
