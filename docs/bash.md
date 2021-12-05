@@ -2,7 +2,6 @@
 Bash is the shell, or command language interpreter, for the Linux operating system. The name is an acronym for the Bourne-Again SHell
 
 ## Bash Command Types
-#
 The bash shell understand the following types of commands
 
 - aliases       (**ll**)
@@ -12,7 +11,6 @@ The bash shell understand the following types of commands
 - files         (**/bin/date**)
 
 ## Login Shell
-#
 User can login locally into the console when in runlevel 3 or graphically when in runlevel 5 
 
 In both cases you need to provide username and password. 
