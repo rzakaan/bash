@@ -12,7 +12,7 @@
 | `-eq` | Equals than |
 | `-ne` | Not equals than |
 
-## File Tests
+## File Attributes Comparisons
 | Condintion | Description |
 |:-|:-|
 | `-a` | File exists |
@@ -63,9 +63,9 @@ The test command is used to check file types and compare values.
 - Basic arithmetic comparisons
 
 ```bash
-$ test $# -lt 2 && echo "Missing argument !"
-$ test -f /etc/resolv.conf && echo "File /etc/resolv.conf found." || echo "File /etc/resolv.conf not found."
-$ test -c /dev/uinput; echo $?
+test $# -lt 2 && echo "Missing argument !"
+test -f /etc/resolv.conf && echo "File /etc/resolv.conf found." || echo "File /etc/resolv.conf not found."
+test -c /dev/uinput; echo $?
 ```
 
 ## Expression [ exp ]
@@ -73,5 +73,39 @@ The expression is what gives the test command its true power. The test can use s
 Here’s a quick list of all the available test expression formats.
 
 ```bash
-$ [ -z $ENV ] && echo “ENV defined” || echo “ENV not defined !”
+[ -z $ENV ] && echo “ENV defined” || echo “ENV not defined !”
+```
+
+## If..else.fi
+if..else..fi allows to make choice based on the success or failure of a command. 
+
+```bash
+if command
+then
+  ...
+else
+  ...
+fi
+```
+
+Or
+
+```bash
+if test variable -eq value
+then
+  ...
+else
+  ...
+fi
+```
+
+Or
+
+```bash
+if [ conditions ]
+then
+  ...
+else
+  ...
+fi
 ```
