@@ -72,8 +72,20 @@ test -c /dev/uinput; echo $?
 The expression is what gives the test command its true power. The test can use strings, files, and integers for comparison.
 Here’s a quick list of all the available test expression formats.
 
+Syntax
+```bash
+[ condition ]
+```
+or
+
+```bash
+[ condition ] && true-command || false-command
+```
+
+Examples
 ```bash
 [ -z $ENV ] && echo “ENV defined” || echo “ENV not defined !”
+[ "$var" == "string" ] && echo "mathing string"
 ```
 
 ## If..else.fi
@@ -105,7 +117,44 @@ Or
 if [ conditions ]
 then
   ...
+elif [ conditions ]
+  ...
 else
   ...
 fi
+```
+
+## Conditional execution
+Logical AND (&&), Logical OR (||) are boolean operators. They can execute commands or shell functions based on the exit status of another command.
+The bash support the following two conditional executions:
+- Logical AND && - Run second command only if first is successful.
+- Logical OR ||  - Run second command only if first is not successful.
+- Logical NOT !
+
+Syntax
+```bash
+command1 && command2
+command1 || command2
+```
+
+Example
+```bash
+# && Example
+rm /tmp/temp.log && echo "File deleted."
+grep "^maintain" /etc/passwd && echo "maintain found in /etc/passwd"
+
+# || Example
+cat /etc/shadow 2>/dev/null || echo "Failed to open file"
+
+# ! Example
+test ! -f /etc/resolv.conf && echo "File /etc/resolv.conf not found."
+[ ! -d /backup ] && mkdir /backup
+[ ! -d /usr/bin ] && exit
+
+# Combine && and ||
+cat /etc/shadow 2>/dev/null && echo "File successfully opened." || echo "Failed to open file."
+grep "^maintain" /etc/passwd && echo "maintain found in /etc/passwd" || echo "User maintain not found in /etc/passwd"
+test $(id -u) -eq 0  && echo "You are root" || echo "You are NOT root"
+test -d /tmp/foo && echo "foo file found !" || { read -p "Directory /tmp/foo not found. Hit [Enter] to exit..." enter; exit 1; }
+
 ```
