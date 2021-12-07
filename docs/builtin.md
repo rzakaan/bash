@@ -1,8 +1,8 @@
 [Main Page](../README.md)
 
-# Bash Built In Commands
+# Bash Builtin Commands
 
-## Top 10 Built In Commands
+## Top 10 Builtin Commands
 
 ### 1) echo
 ---
