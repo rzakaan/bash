@@ -1,9 +1,11 @@
 #!/bin/bash
 
-# Define constants 
+# Define constants
 declare -r TRUE=0
 declare -r FALSE=1
+declare -r ROOT_UID=0
 declare -r PASSWD_FILE=/etc/passwd
+declare -r LOG_DIR=/var/log
 
 #---------------------------------------------------------------
 # Return 0 if current user is root
@@ -12,7 +14,7 @@ declare -r PASSWD_FILE=/etc/passwd
 #---------------------------------------------------------------
 is_user_root() {
  # root user has user id (UID) zero.
- [ $(id -u) -eq 0 ] && return $TRUE || return $FALSE
+ [ $(id -u) -eq $ROOT_UID ] && return $TRUE || return $FALSE
 }
 
 #---------------------------------------------------------------
