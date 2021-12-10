@@ -198,6 +198,10 @@ In this case we assigned multiple items at once to the array, but we can also in
 ```bash
 my_array[0]=foo
 ```
+### Aceess Array Item
+```bash
+${array[$i])
+```
 
 ### Print The Values Of An Array
 ```bash
@@ -206,6 +210,8 @@ echo ${my_array[@]}
 echo ${my_array[*]}
 # Or
 for i in "${my_array[@]}"; do echo "$i"; done
+# Or
+for i in ${#my_array[@]}; do echo ${array[$i]); done 
 ```
 > When using *, and the variable is quoted, instead, a single “result” will be produced, containing all the elements of the array
 
