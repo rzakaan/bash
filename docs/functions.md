@@ -67,13 +67,43 @@ $ backup(): directory name not specified
 ```
 
 ## Return Values
-Example
+Terminates a function. A return command optionally takes an **integer argument**, which is returned to the calling script as the "exit status" of the function, and this exit status is assigned to the variable $?
+
+You can get the value from bash functions in different ways.
+- Using global variable
+- Using function command
+- Using return statement
+
+### Return statement
 ```bash
 sum () {
-	return $(( $1 + $2 ))
+    return $(( $1 + $2 ))
 }
-sum 5 10
 ```
+
+### Using global variable
+Bash function can return a string value by using a global variable
+```bash
+Func () {
+    retval='I like programming'
+}
+retval='I hate programming'
+echo $retval
+Func
+echo $retval
+```
+
+### Using function command
+You can receive the return value of a bash function and store it in a variable at the time of calling.
+```bash
+Func () {
+    local retval='Using BASH Function'
+    echo "$retval"
+}
+val=$(Func)  
+echo $val
+```
+
 
 ## Local Variable
 - By default all variables are global
