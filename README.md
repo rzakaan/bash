@@ -1,5 +1,3 @@
-# Bash Tutorials
-
 <p align="center">
 <img src="resource/bash-logo.png" alt="drawing" style="width:250px;"/>
 <p>
