@@ -8,9 +8,11 @@ declare -r PASSWD_FILE=/etc/passwd
 declare -r LOG_DIR=/var/log
 
 #---------------------------------------------------------------
-# Return 0 if current user is root
-# Arguments:
-#   No args
+# Check current user is root
+# Args:
+#   - No args
+# Return:
+#   if current user is root return TRUE(1) otherwise return FALSE(0)
 #---------------------------------------------------------------
 is_user_root() {
  # root user has user id (UID) zero.
@@ -19,9 +21,9 @@ is_user_root() {
 
 #---------------------------------------------------------------
 # Display an error message and die
-# Arguments:
-#   $1 -> Message
-#   $2 -> Exit status (optional)
+# Args:
+#   - $1 (str) : Error message
+#   - $2 (int) : Exit status (optional)
 #---------------------------------------------------------------
 die() {
   local mes=${1:-Undefined error}
@@ -32,8 +34,8 @@ die() {
 
 #---------------------------------------------------------------
 # Converts string to lowercase
-# Arguments:
-#   $1 -> String
+# Args:
+#   - $1 (str) : A string that will to lower
 #---------------------------------------------------------------
 to_lower() {
     local str="$@"
@@ -44,8 +46,8 @@ to_lower() {
 
 #---------------------------------------------------------------
 # Converts string to uppercase
-# Arguments:
-#   $1 -> String
+# Args:
+#   - $1 (str) : A string that will to upper
 #---------------------------------------------------------------
 to_upper() {
     local str="$@"
@@ -56,8 +58,8 @@ to_upper() {
 
 #---------------------------------------------------------------
 # Return true user exits in /etc/passwd
-# Arguments: 
-#   $1 -> Username to check in /etc/passwd
+# Args: 
+#   - $1 (str) : Username to check in /etc/passwd
 #---------------------------------------------------------------
 is_user_exits() {
     local u="$1"
