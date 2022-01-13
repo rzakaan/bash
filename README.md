@@ -1,4 +1,6 @@
 <p align="center">
+<img src="https://visitor-badge.laobi.icu/badge?page_id=rzakaan/bash" alt="page views" />
+</br></br>
 <img src="resource/bash-logo.png" alt="drawing" style="width:250px;"/>
 <p>
 
